@@ -12,6 +12,9 @@ import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import Index from "./pages/Index";
 import AssessmentCalendar from "./pages/AssessmentCalendar";
+import Auth from "./pages/Auth";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { AuthProvider } from "./contexts/AuthContext";
 import { useState, useEffect } from "react";
 import { Subject, Assessment, UserPreferences } from "./types";
 import { generateMockSubjects, calculateSubjectGrade } from "./lib/mock-data";
@@ -238,6 +241,10 @@ function App() {
   // Create the router
   const router = createBrowserRouter([
     {
+      path: "/auth",
+      element: <Auth />,
+    },
+    {
       path: "/",
       element: <LayoutWrapper />,
       children: [
@@ -245,6 +252,9 @@ function App() {
           index: true,
           element: <Index />,
         },
+        {
+          element: <ProtectedRoute />,
+          children: [
         {
           path: "dashboard",
           element: <Dashboard subjects={subjects} />,
@@ -296,6 +306,8 @@ function App() {
             />
           ),
         },
+          ],
+        },
         {
           path: "*",
           element: <NotFound />,
@@ -306,8 +318,10 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-      <Toaster />
+      <AuthProvider>
+        <RouterProvider router={router} />
+        <Toaster />
+      </AuthProvider>
     </QueryClientProvider>
   );
 }
