@@ -1,0 +1,122 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base theme colors */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 262.1 83.3% 57.8%; /* Indigo */
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262.1 83.3% 57.8%; /* Indigo */
+    --radius: 0.75rem;
+  }
+
+  [data-theme="indigo"] {
+    --primary: 262.1 83.3% 57.8%;
+    --ring: 262.1 83.3% 57.8%;
+  }
+
+  [data-theme="blue"] {
+    --primary: 217.2 91.2% 59.8%;
+    --ring: 217.2 91.2% 59.8%;
+  }
+
+  [data-theme="green"] {
+    --primary: 142.1 76.2% 36.3%;
+    --ring: 142.1 76.2% 36.3%;
+  }
+
+  [data-theme="red"] {
+    --primary: 0 84.2% 60.2%;
+    --ring: 0 84.2% 60.2%;
+  }
+
+  [data-theme="purple"] {
+    --primary: 270 95.2% 43.5%;
+    --ring: 270 95.2% 43.5%;
+  }
+
+  [data-theme="pink"] {
+    --primary: 333.3 84% 47.1%;
+    --ring: 333.3 84% 47.1%;
+  }
+
+  [data-theme="orange"] {
+    --primary: 24.6 95% 53.1%;
+    --ring: 24.6 95% 53.1%;
+  }
+
+  [data-theme="amber"] {
+    --primary: 39 100% 57%;
+    --ring: 39 100% 57%;
+  }
+
+  .dark {
+    --background: 220 33.2% 3.0%;
+    --foreground: 210 20% 98%;
+    --card: 220 33.2% 3.0%;
+    --card-foreground: 210 20% 98%;
+    --popover: 220 33.2% 3.0%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 262.1 83.3% 57.8%; /* Indigo, same primary in dark mode */
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 262.1 83.3% 57.8%; /* Indigo */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+/* Sidebar animation */
+.sidebar-enter {
+  transform: translateX(-100%);
+}
+.sidebar-enter-active {
+  transform: translateX(0);
+  transition: transform 300ms;
+}
+.sidebar-exit {
+  transform: translateX(0);
+}
+.sidebar-exit-active {
+  transform: translateX(-100%);
+  transition: transform 300ms;
+}
