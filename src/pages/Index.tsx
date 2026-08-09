@@ -13,7 +13,7 @@ const Index = () => {
           <h1 className="ml-2 text-xl font-bold text-brand-900">Grade Genius</h1>
         </div>
         <Button variant="outline" size="sm" asChild>
-          <Link to="/dashboard">Iniciar Sesión</Link>
+          <Link to="/auth">Iniciar Sesión</Link>
         </Button>
       </header>
 
@@ -28,7 +28,7 @@ const Index = () => {
             Establecer metas y logra mejores resultados.
           </p>
           <Button size="lg" className="mt-8 bg-brand-600 hover:bg-brand-700" asChild>
-            <Link to="/dashboard">Comenzar ahora</Link>
+            <Link to="/auth">Comenzar ahora</Link>
           </Button>
         </div>
 

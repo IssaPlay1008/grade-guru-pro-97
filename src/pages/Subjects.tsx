@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Plus, Search, BookOpen, Calendar, Tag } from "lucide-react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Subject } from "@/types";
+import { Subject, Assessment } from "@/types";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";

@@ -161,7 +161,7 @@ const SubjectDetail = ({
       toast({
         title: "Nota máxima excedida",
         description: "La nota ha sido ajustada al máximo de 20 puntos.",
-        variant: "warning"
+        variant: "destructive"
       });
     }
     

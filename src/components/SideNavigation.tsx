@@ -8,16 +8,19 @@ import {
   Settings, 
   Home, 
   Calendar,
-  ChevronRight
+  ChevronRight,
+  LogOut
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useAuth } from "@/contexts/AuthContext";
 
 export function SideNavigation() {
   const location = useLocation();
   const navigate = useNavigate();
   const isMobile = useIsMobile();
+  const { user, signOut } = useAuth();
   const [isVisible, setIsVisible] = useState(true);
   const [tabVisible, setTabVisible] = useState(false);
 
@@ -112,6 +115,20 @@ export function SideNavigation() {
               </button>
             ))}
           </div>
+
+          {/* Logout */}
+          {user && (
+            <button
+              onClick={async () => {
+                await signOut();
+                navigate("/auth", { replace: true });
+              }}
+              className="flex flex-col items-center justify-center py-5 text-xs text-gray-500 hover:text-red-600 hover:bg-gray-50 transition-colors border-t border-gray-100"
+            >
+              <LogOut className="h-5 w-5 mb-1" />
+              <span className="text-xs">Salir</span>
+            </button>
+          )}
         </div>
       </div>
 

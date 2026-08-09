@@ -3,13 +3,9 @@ import React from 'react';
 import { Outlet, useNavigate } from "react-router-dom";
 import Layout from "./Layout";
 
-interface LayoutWrapperProps {
-  isMobile: boolean;
-}
-
-const LayoutWrapper: React.FC<LayoutWrapperProps> = ({ isMobile }) => {
+const LayoutWrapper: React.FC = () => {
   return (
-    <Layout isMobile={isMobile}>
+    <Layout>
       <Outlet />
     </Layout>
   );
